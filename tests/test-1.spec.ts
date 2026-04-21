@@ -5,6 +5,10 @@ test.describe('pagrindinio psl testai', () => {
     await page.goto('https://playwright.dev/');
   });
   test('patikrinimas navigacijos elementu', async ({ page }) => {
+    test.step('Проверка отображения элемента Playwright logo', async () => {
+      await expect.soft(page.getByRole('link', { name: 'Playwright logo Playwright' })).toBeVisible();
+    });
+
     await expect(page.getByRole('link', { name: 'Playwright logo Playwright' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Docs' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'MCP', exact: true })).toBeVisible();
